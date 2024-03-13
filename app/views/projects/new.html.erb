@@ -1,0 +1,11 @@
+<main class="container">
+  <%= link_to sanitize("&larr; Back to projects"), projects_url %>
+
+  <div class="header">
+    <h1>New Project</h1>
+  </div>
+
+  <%= turbo_frame_tag "second_frame" do %>
+    <%= render "form", project: @project %>
+  <% end %>
+</main>
