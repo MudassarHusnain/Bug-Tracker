@@ -71,9 +71,14 @@ group :test do
   gem "webdrivers"
 end
 
-
 gem 'devise'
 
 gem 'simple_form'
 
-gem 'turbo-rails'
+gem 'cancancan'
+
+gem 'bootstrap', '~> 5.3.2'
+
+gem 'jquery-rails'
+
+gem "sassc-rails"

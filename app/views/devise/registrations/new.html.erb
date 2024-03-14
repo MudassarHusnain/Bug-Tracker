@@ -23,7 +23,7 @@
 
   <div>
     <%= f.label :user_type %><br/>
-    <%= f.select :user_type,  options_for_select([['Manager', "manager"], ['Developer', "developer"],['Qa',"qa"]]), {},remote:true %>
+    <%= f.select :user_type,  User.user_types.keys.map { |role| [role.capitalize, role] },remote:true %>
   </div>
   <div class="actions">
     <%= f.submit "Sign up" %>

@@ -4,6 +4,7 @@
       <h1>Projects</h1>
       <%= render "form" ,project: current_user.projects.new%>
     </div>
+    <%= render 'bugs/form',bug: current_user.bugs.new %>
   <% end %>
 
   <%= turbo_frame_tag "second_frame" do %>

@@ -1,0 +1,12 @@
+<main class="container">
+  <%= turbo_frame_tag "first_turbo_frame" do %>
+    <div class="header">
+      <h1>bugs</h1>
+      <%= render "form" ,bug: current_user.bugs.new%>
+    </div>
+  <% end %>
+
+  <%= turbo_frame_tag "second_frame" do %>
+    <%= render partial: "bug", collection: @bugs %>
+  <% end %>
+</main>

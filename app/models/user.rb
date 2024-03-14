@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
 
 
-  # enum user_type: [ :manager , :developer, :qa]
-  has_many :projects
+  enum user_type: {manager:0, developer:1, qa:2}
+  has_many :projects ,dependent: :nullify
+  has_many :bugs,dependent: :nullify
 end

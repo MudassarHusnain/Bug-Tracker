@@ -1,0 +1,39 @@
+<%= simple_form_for bug, html: { class: "project form" } do |f| %>
+  <% if bug.errors.any? %>
+    <div class="error-message">
+      <%= bug.errors.full_messages.to_sentence.capitalize %>
+    </div>
+  <% end %>
+
+  <div>
+  <%= f.input :title, input_html: { autofocus: true } %>
+  </div>
+
+  <div>
+    <%= f.label :Description %><br/>
+    <%= f.input :description, input_html: { autofocus: true } %>
+  </div>
+
+  <div>
+    <%= f.label :bug_Status %><br/>
+    <%= f.select :bug_status,  Bug.bug_statuses.keys.map { |status| [status.capitalize, status] },remote:true %>
+  </div>
+
+  <div>
+    <%= f.label :Bug_type %><br/>
+    <%= f.select :bug_type,Bug.bug_types.keys.map { |status| [status.capitalize, status] }  ,remote:true %>
+  </div>
+
+  <div>
+
+  <%= f.select :developer_id, options_for_select(developer_options),{},remote: true %>
+  </div>
+
+  <div>
+
+    <%= f.select :project_id, options_for_select(projects),{},remote: true %>
+  </div>
+  <%= f.text_field :dead_line, id: "datepicker" %>
+  <%= link_to "Cancel", bugs_path, class: "btn btn--light" %>
+  <%= f.submit class: "btn btn--secondary" %>
+<% end %>

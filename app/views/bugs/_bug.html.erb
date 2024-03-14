@@ -1,0 +1,14 @@
+<%= turbo_frame_tag "bug_#{bug.id}" do %>
+  <div class="bug">
+    <%= link_to bug.title, bug_path(bug) %>
+    <div class="bug__actions">
+      <%= button_to "Delete",
+                    bug_path(bug),
+                    method: :delete,
+                    class: "btn btn--light" %>
+      <%= link_to "Edit",
+                  edit_bug_path(bug),
+                  class: "btn btn--light" %>
+    </div>
+  </div>
+<% end %>
